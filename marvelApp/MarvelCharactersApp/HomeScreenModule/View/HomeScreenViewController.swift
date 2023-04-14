@@ -7,15 +7,17 @@
 
 import UIKit
 import Kingfisher
-
-class HomeScreenViewController: UIViewController {
+import CoreData
+class HomeScreenViewController: UIViewController, UITabBarControllerDelegate {
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
     let viewModel = HomeScreenViewModel()
     var isLoading = false
-    
+    var favoriteStatus = [Int: Bool]()
+    var character: newResult?
+    var characters: [newResult]?
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,19 +25,62 @@ class HomeScreenViewController: UIViewController {
         setupTableView()
         loadData()
         searchBar.delegate = self
+        self.tabBarController?.delegate = self
     }
-    
-    @objc func handleFavoriteButtonTap(_ sender: UIButton) {
-        let character = viewModel.characters![sender.tag]
-        let defaults = UserDefaults.standard
-        var favorites = defaults.array(forKey: "favorites") as? [Int] ?? [] // favorileri tutmak için bir dizi oluşturuyoruz veya mevcut bir diziyi alıyoruz
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            if segue.identifier == "goToDetail" {
+                //as ile casting
+                let destination = segue.destination as! DetailViewController
+                destination.characters = character
+            }
         
-        if !favorites.contains(character.id!) { // character id'si favorilerde yoksa ekliyoruz
-            favorites.append(character.id!)
-            defaults.set(favorites, forKey: "favorites")
+    }
+   
+    
+    @objc func favoriteButtonTapped(_ sender: UIButton) {
+        let buttonPosition = sender.convert(CGPoint.zero, to: tableView)
+            guard let indexPath = tableView.indexPathForRow(at: buttonPosition) else {
+                return
+            }
+            
+            // toggle the isSelected property
+            sender.isSelected.toggle()
+            
+            // update the favorite status dictionary
+            favoriteStatus[indexPath.row] = sender.isSelected
+            
+            // update UserDefaults
+            let defaults = UserDefaults.standard
+            let key = "favorite_\(indexPath.row)"
+            defaults.set(sender.isSelected, forKey: key)
+            
+            // set the title to an empty string to hide the text
+            sender.setTitle("", for: .normal)
+            
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let thumbnailExtension = NSString(string: "\(characters![indexPath.row].thumbnail?.thumbnailExtension!)")
+
+        
+        let newFavorite = NSEntityDescription.insertNewObject(forEntityName: "Favorite", into: context)
+        newFavorite.setValue(characters![indexPath.row].name!, forKey: "name")
+        newFavorite.setValue(characters![indexPath.row].series?.available!, forKey: "series")
+        newFavorite.setValue(characters![indexPath.row].thumbnail?.path!, forKey: "path")
+        newFavorite.setValue(thumbnailExtension, forKey: "thumbnail")
+        
+        do {
+            try context.save()
+            print("success")
+        } catch {
+            print("coreDataError")
+        }
+        
+    }
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        if let favoriteViewController = viewController as? FavoriteViewController {
+            
         }
     }
-    
     private func setupTableView() {
         tableView.dataSource = self
         tableView.delegate = self
@@ -79,12 +124,20 @@ extension HomeScreenViewController: UITableViewDataSource {
               indexPath.row < filtered.count else {
             return cell
         }
+        self.characters = viewModel.characters
         let character = filtered[indexPath.row]
         cell.configure(with: character)
+        if let favorite = favoriteStatus[indexPath.row] {
+                cell.favoriteButton.isSelected = favorite
+            } else {
+                // if the favorite status is not in the dictionary, set the default value from UserDefaults
+                let defaults = UserDefaults.standard
+                let key = "favorite_\(indexPath.row)"
+                cell.favoriteButton.isSelected = defaults.bool(forKey: key)
+            }
         
         cell.favoriteButton.tag = indexPath.row // tag olarak indexPath.row kullanarak her bir hücrenin sıra numarasını butona atıyoruz
-        cell.favoriteButton.addTarget(self, action: #selector(handleFavoriteButtonTap(_:)), for: .touchUpInside)
-        
+        cell.setFavoriteButtonAction(action: #selector(favoriteButtonTapped), target: self)
         cell.seriesLabel.text = "Series: \((character.series?.available)!)"
         cell.nameLabel.text = character.name
         
@@ -107,12 +160,15 @@ extension HomeScreenViewController: UITableViewDataSource {
 
 extension HomeScreenViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        character = viewModel.characters![indexPath.row]
+        performSegue(withIdentifier: "goToDetail", sender: nil)
+        
+        
         guard let filtered = viewModel.filteredCharacters(for: searchBar.text ?? ""),
               indexPath.row < filtered.count else {
             return
         }
-        let character = filtered[indexPath.row]
-        // character'a tıklandığında yapılacak işlemler
+        
     }
 }
 

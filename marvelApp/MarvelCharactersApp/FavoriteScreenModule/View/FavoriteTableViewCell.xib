@@ -22,19 +22,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="110"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dsa-Wn-npm">
-                                <rect key="frame" x="8" y="8" width="115" height="93"/>
+                                <rect key="frame" x="8" y="9" width="115" height="93"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="115" id="Ds6-Sg-x32"/>
+                                    <constraint firstAttribute="width" constant="115" id="aGH-oN-Ep0"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wRm-A7-He7">
-                                <rect key="frame" x="131" y="44" width="181" height="20"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wRm-A7-He7">
+                                <rect key="frame" x="131" y="45" width="181" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xf5-yr-YVv">
-                                <rect key="frame" x="131" y="80" width="181" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xf5-yr-YVv">
+                                <rect key="frame" x="131" y="73" width="181" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -42,25 +42,26 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Dsa-Wn-npm" firstAttribute="centerY" secondItem="eHY-Kq-ehm" secondAttribute="centerY" id="7Yq-4h-9hC"/>
-                            <constraint firstItem="xf5-yr-YVv" firstAttribute="top" secondItem="wRm-A7-He7" secondAttribute="bottom" constant="16" id="ApX-Ob-i5t"/>
-                            <constraint firstItem="Dsa-Wn-npm" firstAttribute="centerY" secondItem="wRm-A7-He7" secondAttribute="centerY" id="H4D-Jo-NjE"/>
-                            <constraint firstItem="Dsa-Wn-npm" firstAttribute="bottom" secondItem="xf5-yr-YVv" secondAttribute="bottom" id="KUz-Tb-yVs"/>
-                            <constraint firstItem="wRm-A7-He7" firstAttribute="trailing" secondItem="eHY-Kq-ehm" secondAttribute="trailingMargin" id="KrN-Bu-IBg"/>
-                            <constraint firstItem="Dsa-Wn-npm" firstAttribute="top" secondItem="eHY-Kq-ehm" secondAttribute="top" constant="8" id="S4c-gh-oau"/>
-                            <constraint firstItem="wRm-A7-He7" firstAttribute="leading" secondItem="Dsa-Wn-npm" secondAttribute="trailing" constant="8" id="WMe-RG-7Dn"/>
-                            <constraint firstItem="wRm-A7-He7" firstAttribute="top" secondItem="eHY-Kq-ehm" secondAttribute="top" constant="44" id="eic-nV-78x"/>
-                            <constraint firstItem="Dsa-Wn-npm" firstAttribute="leading" secondItem="eHY-Kq-ehm" secondAttribute="leadingMargin" id="fYj-Y2-Hi4"/>
-                            <constraint firstItem="wRm-A7-He7" firstAttribute="leading" secondItem="xf5-yr-YVv" secondAttribute="leading" id="iTF-ac-SEc"/>
-                            <constraint firstItem="wRm-A7-He7" firstAttribute="trailing" secondItem="xf5-yr-YVv" secondAttribute="trailing" id="pwk-wm-2Uv"/>
+                            <constraint firstItem="Dsa-Wn-npm" firstAttribute="top" secondItem="eHY-Kq-ehm" secondAttribute="top" constant="9" id="2eI-Cv-PKz"/>
+                            <constraint firstItem="wRm-A7-He7" firstAttribute="leading" secondItem="Dsa-Wn-npm" secondAttribute="trailing" constant="8" id="DNZ-16-vuh"/>
+                            <constraint firstAttribute="width" constant="320" id="Ge3-mY-4oF"/>
+                            <constraint firstItem="Dsa-Wn-npm" firstAttribute="leading" secondItem="eHY-Kq-ehm" secondAttribute="leadingMargin" id="Jp2-fP-zQG"/>
+                            <constraint firstItem="wRm-A7-He7" firstAttribute="leading" secondItem="xf5-yr-YVv" secondAttribute="leading" id="Prb-gi-E9Q"/>
+                            <constraint firstItem="wRm-A7-He7" firstAttribute="top" secondItem="eHY-Kq-ehm" secondAttribute="top" constant="45" id="SC1-8n-gra"/>
+                            <constraint firstItem="wRm-A7-He7" firstAttribute="trailing" secondItem="xf5-yr-YVv" secondAttribute="trailing" id="WYc-jU-bEC"/>
+                            <constraint firstItem="Dsa-Wn-npm" firstAttribute="centerY" secondItem="wRm-A7-He7" secondAttribute="centerY" id="Xdq-pC-5aC"/>
+                            <constraint firstItem="xf5-yr-YVv" firstAttribute="top" secondItem="wRm-A7-He7" secondAttribute="bottom" constant="8" id="Xim-6J-T9v"/>
+                            <constraint firstAttribute="height" constant="110" id="ble-v1-DTE"/>
+                            <constraint firstItem="wRm-A7-He7" firstAttribute="trailing" secondItem="eHY-Kq-ehm" secondAttribute="trailingMargin" id="h1n-Ra-hZL"/>
+                            <constraint firstItem="Dsa-Wn-npm" firstAttribute="centerY" secondItem="eHY-Kq-ehm" secondAttribute="centerY" id="z0e-MK-yq5"/>
                         </constraints>
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="eHY-Kq-ehm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="1fV-Gh-4Ek"/>
-                    <constraint firstAttribute="trailing" secondItem="eHY-Kq-ehm" secondAttribute="trailing" id="Mgk-ol-gPX"/>
-                    <constraint firstItem="eHY-Kq-ehm" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="jyM-FL-swn"/>
-                    <constraint firstAttribute="bottom" secondItem="eHY-Kq-ehm" secondAttribute="bottom" id="zvT-eh-AqK"/>
+                    <constraint firstAttribute="bottom" secondItem="eHY-Kq-ehm" secondAttribute="bottom" id="FHp-GW-tFJ"/>
+                    <constraint firstItem="eHY-Kq-ehm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="JKG-oZ-QAi"/>
+                    <constraint firstItem="eHY-Kq-ehm" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="V4c-Uw-6Yr"/>
+                    <constraint firstAttribute="trailing" secondItem="eHY-Kq-ehm" secondAttribute="trailing" id="fpU-6D-BLX"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

@@ -17,14 +17,19 @@ class HomeScreenTableViewCell: UITableViewCell {
     
     var characterId: Int?
     
+    var isFavorite: Bool = false {
+            didSet {
+                let imageName = isFavorite ? "star-system-2" : "star-system-1"
+                let image = UIImage(named: imageName)
+                favoriteButton.setBackgroundImage(image, for: .normal)
+            }
+        }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        let starSystemImage = UIImage(named: "star-system-1")
-
-        favoriteButton.setTitle("", for: .normal) // Boş title
-        favoriteButton.setBackgroundImage(starSystemImage, for: .normal) // Image'ı backgroundImage olarak ata
-
+       
+        favoriteButton.setTitle("", for: .normal)
         charactersImage.layer.cornerRadius = self.frame.height / 4.0
         charactersImage.layer.masksToBounds = true
         charactersImage.contentMode = .scaleAspectFit
@@ -36,10 +41,8 @@ class HomeScreenTableViewCell: UITableViewCell {
         ])
 
     }
-    @IBAction func favoriteButtonTapped(_ sender: Any) {
-        if let characterId = characterId {
-                    UserDefaults.standard.set(true, forKey: "\(characterId)")
-        }
+    func setFavoriteButtonAction(action: Selector, target: Any) {
+        favoriteButton.addTarget(target, action: action, for: .touchUpInside)
     }
 
 

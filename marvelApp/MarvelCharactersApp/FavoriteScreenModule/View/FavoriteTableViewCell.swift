@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class FavoriteTableViewCell: UITableViewCell {
 
@@ -22,14 +23,12 @@ class FavoriteTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    func configure(with character: newResult) {
+    func configure(path: String, thumbnail: String) {
         
-                favoriteName.text = character.name
-                if let thumbnailUrlString = character.thumbnail?.path,
-                   let thumbnailExtension = character.thumbnail?.thumbnailExtension,
-                   let thumbnailUrl = URL(string: thumbnailUrlString + "." + thumbnailExtension.rawValue) {
+                   let thumbnailUrl = URL(string: path + "." + thumbnail)
                     favoriteImage.kf.setImage(with: thumbnailUrl)
-                    
-            }
+            
     }
+    
+    
 }

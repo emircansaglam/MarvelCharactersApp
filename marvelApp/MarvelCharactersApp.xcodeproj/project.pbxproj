@@ -29,6 +29,9 @@
 		F23BC6EA29E8D861005FDAB8 /* FavoriteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23BC6E929E8D861005FDAB8 /* FavoriteService.swift */; };
 		F23BC6ED29E8DAB1005FDAB8 /* FavoriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23BC6EB29E8DAB1005FDAB8 /* FavoriteTableViewCell.swift */; };
 		F23BC6EE29E8DAB1005FDAB8 /* FavoriteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F23BC6EC29E8DAB1005FDAB8 /* FavoriteTableViewCell.xib */; };
+		F23BC6F629E95FE9005FDAB8 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23BC6F529E95FE9005FDAB8 /* DetailViewController.swift */; };
+		F23BC6F829E989EC005FDAB8 /* FirstTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23BC6F729E989EC005FDAB8 /* FirstTableViewCell.swift */; };
+		F23BC6FA29E989F9005FDAB8 /* SecondTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F23BC6F929E989F9005FDAB8 /* SecondTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +76,9 @@
 		F23BC6E929E8D861005FDAB8 /* FavoriteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteService.swift; sourceTree = "<group>"; };
 		F23BC6EB29E8DAB1005FDAB8 /* FavoriteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewCell.swift; sourceTree = "<group>"; };
 		F23BC6EC29E8DAB1005FDAB8 /* FavoriteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoriteTableViewCell.xib; sourceTree = "<group>"; };
+		F23BC6F529E95FE9005FDAB8 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		F23BC6F729E989EC005FDAB8 /* FirstTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTableViewCell.swift; sourceTree = "<group>"; };
+		F23BC6F929E989F9005FDAB8 /* SecondTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +131,7 @@
 		21EE9F9429E7EBE2007394BA /* MarvelCharactersApp */ = {
 			isa = PBXGroup;
 			children = (
+				F23BC6EF29E95F71005FDAB8 /* DetailScreenModule */,
 				F23BC6E129E8CA36005FDAB8 /* FavoriteScreenModule */,
 				21EE9FC929E7ED61007394BA /* HomeScreenModule */,
 				21EE9FC829E7ED42007394BA /* Resources */,
@@ -232,6 +239,40 @@
 			isa = PBXGroup;
 			children = (
 				F23BC6E929E8D861005FDAB8 /* FavoriteService.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F23BC6EF29E95F71005FDAB8 /* DetailScreenModule */ = {
+			isa = PBXGroup;
+			children = (
+				F23BC6F229E95F8C005FDAB8 /* Model */,
+				F23BC6F129E95F83005FDAB8 /* VM */,
+				F23BC6F029E95F7C005FDAB8 /* View */,
+			);
+			path = DetailScreenModule;
+			sourceTree = "<group>";
+		};
+		F23BC6F029E95F7C005FDAB8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F23BC6F529E95FE9005FDAB8 /* DetailViewController.swift */,
+				F23BC6F729E989EC005FDAB8 /* FirstTableViewCell.swift */,
+				F23BC6F929E989F9005FDAB8 /* SecondTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F23BC6F129E95F83005FDAB8 /* VM */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = VM;
+			sourceTree = "<group>";
+		};
+		F23BC6F229E95F8C005FDAB8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -377,15 +418,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F23BC6F629E95FE9005FDAB8 /* DetailViewController.swift in Sources */,
 				21EE9FA029E7EBE2007394BA /* MarvelCharactersApp.xcdatamodeld in Sources */,
 				F23BC6ED29E8DAB1005FDAB8 /* FavoriteTableViewCell.swift in Sources */,
 				21EE9F9A29E7EBE2007394BA /* HomeScreenViewController.swift in Sources */,
 				21EE9FD029E7EDF1007394BA /* HomeScreenService.swift in Sources */,
 				F23BC6EA29E8D861005FDAB8 /* FavoriteService.swift in Sources */,
+				F23BC6F829E989EC005FDAB8 /* FirstTableViewCell.swift in Sources */,
 				21EE9FD229E7EDFC007394BA /* HomeScreenModel.swift in Sources */,
 				F23BC6E629E8CA97005FDAB8 /* FavoriteViewController.swift in Sources */,
 				F23BC6DF29E8963E005FDAB8 /* HomeScreenTableViewCell.swift in Sources */,
 				21EE9F9629E7EBE2007394BA /* AppDelegate.swift in Sources */,
+				F23BC6FA29E989F9005FDAB8 /* SecondTableViewCell.swift in Sources */,
 				21EE9F9829E7EBE2007394BA /* SceneDelegate.swift in Sources */,
 				F23BC6E829E8D7E8005FDAB8 /* FavoriteViewModel.swift in Sources */,
 				21EE9FCE29E7EDE1007394BA /* HomeScreenViewModel.swift in Sources */,
