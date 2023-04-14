@@ -20,8 +20,8 @@ class HomeScreenService {
         let hash = Insecure.MD5.hash(data: "\(timestamp)\(privateKey)\(publicKey)".data(using: .utf8)!)
         let hashString = hash.map { String(format: "%02hhx", $0) }.joined()
         
-        let urlString = "https://gateway.marvel.com/v1/public/characters?limit=5&offset=\(endPoint)&ts=\(timestamp)&apikey=\(publicKey)&hash=\(hashString)"
-        
+        let urlString = "https://gateway.marvel.com/v1/public/characters?limit=10&offset=\(endPoint)&ts=\(timestamp)&apikey=\(publicKey)&hash=\(hashString)"
+        print(urlString)
         AF.request(urlString).response { response in
             guard let data = response.data else {
                 completion(nil)
